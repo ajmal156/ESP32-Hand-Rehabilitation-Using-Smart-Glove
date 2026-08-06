@@ -142,12 +142,10 @@ Hand Rehabilitation
 * Independent five-finger pneumatic control
 * Pressure sensor feedback
 * Force monitoring
-* Mobile application
 * Firebase integration
-* Doctor dashboard
 * Patient history database
 * Cloud storage
-* AI-assisted rehabilitation analysis
+
 
 ---
 
