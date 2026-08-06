@@ -1,98 +1,159 @@
-//  Hardware Pins 
+// Hardware Pins
+#define VALVE1_PIN 26      // Pressure Valve
+#define VALVE2_PIN 25      // Release Valve
 
-#define PUMP_PIN    18
-
-#define VALVE1_PIN  19      // Full Grip Valve
-#define VALVE2_PIN  21      // Thumb Valve
-
-// Initialize Hardware
-
-
-void setupGlove() {
-    pinMode(PUMP_PIN, OUTPUT);
-
+void setupGlove()
+{
     pinMode(VALVE1_PIN, OUTPUT);
     pinMode(VALVE2_PIN, OUTPUT);
 
-    digitalWrite(PUMP_PIN, LOW);
-
-    digitalWrite(VALVE1_PIN, LOW);
-    digitalWrite(VALVE2_PIN, LOW);
+    digitalWrite(VALVE1_PIN, LOW); // initial set the valve off  
+    digitalWrite(VALVE2_PIN, LOW); // initial set the valve off  
 
     Serial.println("Glove Hardware Ready");
 }
 
-// Full Hand Grip
-
-void fullGrip()
+// =======================
+// 1. Full Hand Exercise
+// =======================
+void fullHand()
 {
-    Serial.println("-----------------------");
-    Serial.println("Exercise : Full Grip");
+    Serial.println("=======================");   
+    Serial.println("Full Hand Exercise");
+    Serial.println("=======================");
+    
+    Serial.println("Exercise : Full Hand");
 
-    digitalWrite(PUMP_PIN, HIGH);
     digitalWrite(VALVE1_PIN, HIGH);
+    digitalWrite(VALVE2_PIN, LOW);
+    delay(9000);
 
-    delay(3000);
-
-    digitalWrite(PUMP_PIN, LOW);
     digitalWrite(VALVE1_PIN, LOW);
+    delay(500);
 
-    Serial.println("Full Grip Complete");
+    digitalWrite(VALVE2_PIN, HIGH);
+    delay(9000);
+
+    digitalWrite(VALVE2_PIN, LOW);
+
+    Serial.println("Full Hand Complete");
 }
 
-// Thumb Exercise
-
-
+// =======================
+// 2. Thumb Exercise
+// =======================
 void thumbExercise()
 {
-    Serial.println("-----------------------");
+    Serial.println("=======================");  
+    Serial.println("   Thumb Exercise      ");
+    Serial.println("=======================");
+    
     Serial.println("Exercise : Thumb");
 
-    digitalWrite(PUMP_PIN, HIGH);
-    digitalWrite(VALVE2_PIN, HIGH);
-
-    delay(2000);
-
-    digitalWrite(PUMP_PIN, LOW);
+    digitalWrite(VALVE1_PIN, HIGH);
     digitalWrite(VALVE2_PIN, LOW);
-
-    Serial.println("Thumb Exercise Complete");
-}
-
-//------------------------------------------------
-// Release Hand
-//------------------------------------------------
-
-void releaseHand()
-{
-    Serial.println("-----------------------");
-    Serial.println("Release Hand");
-
-    digitalWrite(PUMP_PIN, LOW);
+    delay(5000);
 
     digitalWrite(VALVE1_PIN, LOW);
+    delay(500);
+
+    digitalWrite(VALVE2_PIN, HIGH);
+    delay(5000);
+
     digitalWrite(VALVE2_PIN, LOW);
 
-    delay(1000);
-
-    Serial.println("Hand Released");
+    Serial.println("Thumb Complete");
 }
 
+// =======================
+// 3. Index Finger
+// =======================
+void indexFingerExercise()
+{
+    Serial.println("============================");   
+    Serial.println("   Index Finger Exercise     ");
+    Serial.println("=============================");
+
+    Serial.println("Exercise : Index Finger");
+
+    digitalWrite(VALVE1_PIN, HIGH);
+    digitalWrite(VALVE2_PIN, LOW);
+    delay(4000);
+
+    digitalWrite(VALVE1_PIN, LOW);
+    delay(500);
+
+    digitalWrite(VALVE2_PIN, HIGH);
+    delay(4000);
+
+    digitalWrite(VALVE2_PIN, LOW);
+
+    Serial.println("Index Finger Complete");
+}
+
+// =======================
+// 4. Middle Finger
+// =======================
+void middleFingerExercise()
+{
+    Serial.println("==============================");   
+    Serial.println("   Middle Finger Exercise   ");
+    Serial.println("===============================");
+    
+    Serial.println("Exercise : Middle Finger");
+
+    digitalWrite(VALVE1_PIN, HIGH);
+    digitalWrite(VALVE2_PIN, LOW);
+    delay(4000);
+
+    digitalWrite(VALVE1_PIN, LOW);
+    delay(500);
+
+    digitalWrite(VALVE2_PIN, HIGH);
+    delay(4000);
+
+    digitalWrite(VALVE2_PIN, LOW);
+
+    Serial.println("Middle Finger Complete");
+}
+
+// =======================
+// 5. Ring + Little Finger
+// =======================
+void ringLittleExercise()
+{
+    Serial.println("===============================");   
+    Serial.println("  Ring + Little Finger Exercise  ");
+    Serial.println("================================");
+    
+    Serial.println("Exercise : Ring & Little Finger");
+
+    digitalWrite(VALVE1_PIN, HIGH);
+    digitalWrite(VALVE2_PIN, LOW);
+    delay(4000);
+
+    digitalWrite(VALVE1_PIN, LOW);
+    delay(500);
+
+    digitalWrite(VALVE2_PIN, HIGH);
+    delay(4000);
+
+    digitalWrite(VALVE2_PIN, LOW);
+
+    Serial.println("Ring & Little Finger Complete");
+}
+
+// =======================
 // Emergency Stop
-
-
+// =======================
 void stopSystem()
 {
-    Serial.println("-----------------------");
-    Serial.println("Emergency Stop");
-
-    digitalWrite(PUMP_PIN, LOW);
-
+    Serial.println("=======================");   
+    Serial.println("    Emergency Stop      ");
+    Serial.println("=======================");
+    
     digitalWrite(VALVE1_PIN, LOW);
     digitalWrite(VALVE2_PIN, LOW);
 
-    Serial.println("All Outputs OFF");
-}    
-
-
-
+    Serial.println("Emergency Stop");
+}
