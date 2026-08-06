@@ -12,21 +12,18 @@ char keys[ROWS][COLS] =
   {'*','0','#','D'}
 };
 
-byte rowPins[ROWS] = {13,12,14,27};
-byte colPins[COLS] = {26,25,33,32};
+byte rowPins[ROWS] = {13,12,14,27}; // to set the Row ON KEYPAD
+byte colPins[COLS] = {18,19,21,22}; // to set the COLUMN ON KEYPAD
 
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 // Initialize Keypad
 
-
 void setupKeypad(){
     Serial.println("Keypad Ready");
 }
 
-
-// Read Keypad
-
+// Read Keypad to controll on the keypad 
 void readKeypad() {
     char key = keypad.getKey();
 
@@ -35,32 +32,35 @@ void readKeypad() {
         Serial.print("Key Pressed : ");
         Serial.println(key);
 
-        switch(key) {
-            
-            case '1':
-                fullGrip();
-                sendData("Full Grip","3 Seconds");
-                break;
+        switch(key){
+            case '1': // set the full group 
+            fullHand();
+            sendData("Full Hand", "9 Seconds");
+            break;
 
-            case '2':
+            case '2': // set the thumb exercise 
                 thumbExercise();
-                sendData("Thumb Exercise","2 Seconds");
+                sendData("Thumb", "5 Seconds");
                 break;
 
-            case '3':
-                releaseHand();
-                sendData("Release Hand","1 Second");
+            case '3': // set the index finger exercise
+                indexFingerExercise();
+                sendData("Index Finger", "4 Seconds");
+                break;
+
+            case '4': // set the middle finger exercise 
+                middleFingerExercise();
+                sendData("Middle Finger", "4 Seconds");
+                break;
+
+            case '5': // set the ring + little finger exercise
+                ringLittleExercise();
+                sendData("Ring & Little Finger", "4 Seconds");
                 break;
 
             case '0':
                 stopSystem();
                 break;
-
-            default:
-                Serial.println("Invalid Key");
-                break;
         }
     }
-} 
-
-
+}
