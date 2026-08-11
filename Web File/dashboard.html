@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physio Glove | Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">Physio<span>Glove</span></div>
+    <p class="brand-sub">Rehabilitation System</p>
+    <nav>
+      <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+      <button class="nav-btn" data-section="patients">Patients</button>
+      <button class="nav-btn" data-section="logs">Data Logging</button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="pageTitle">Dashboard</h1>
+        <p>Patient rehabilitation monitoring and session history</p>
+      </div>
+      <div class="connection"><span id="dot"></span><span id="apiStatus">Checking server...</span></div>
+    </header>
+
+    <section id="dashboard" class="section active">
+      <div class="cards">
+        <div class="card"><span>Total Patients</span><strong id="totalPatients">0</strong></div>
+        <div class="card"><span>Total Sessions</span><strong id="totalSessions">0</strong></div>
+        <div class="card"><span>Completed</span><strong id="completedSessions">0</strong></div>
+        <div class="card"><span>Latest Exercise</span><strong id="latestExercise">—</strong></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Recent Sessions</h2><button class="small-btn" onclick="loadAll()">Refresh</button></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Date/Time</th><th>Patient</th><th>Exercise</th><th>Reps</th><th>Duration</th><th>Pressure</th><th>Status</th></tr></thead>
+          <tbody id="recentLogs"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section id="patients" class="section">
+      <div class="panel">
+        <div class="panel-head"><h2>Patient Records</h2><button class="primary-btn" onclick="openPatientForm()">+ Add Patient</button></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Doctor/Therapist</th><th>Exercise Plan</th><th>Registered</th></tr></thead>
+          <tbody id="patientsTable"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section id="logs" class="section">
+      <div class="panel">
+        <div class="panel-head"><h2>Exercise Data Logging</h2><div><select id="patientFilter" onchange="renderLogs()"><option value="">All Patients</option></select> <button class="small-btn" onclick="loadAll()">Refresh</button></div></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Date/Time</th><th>Patient ID</th><th>Exercise</th><th>Reps</th><th>Duration</th><th>Pressure</th><th>Valve 1</th><th>Valve 2</th><th>Status</th></tr></thead>
+          <tbody id="logsTable"></tbody>
+        </table></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="patientModal" class="modal">
+  <div class="modal-box">
+    <div class="panel-head"><h2>Add Patient</h2><button class="close" onclick="closePatientForm()">×</button></div>
+    <form id="patientForm">
+      <label>Patient ID<input id="p_id" required placeholder="P001"></label>
+      <label>Name<input id="p_name" required placeholder="Patient name"></label>
+      <label>Age<input id="p_age" type="number" min="1" max="120" required></label>
+      <label>Doctor/Therapist<input id="p_doctor" placeholder="Doctor name"></label>
+      <label>Exercise Plan<input id="p_plan" placeholder="Full Grip, Thumb Exercise"></label>
+      <button class="primary-btn" type="submit">Save Patient</button>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
