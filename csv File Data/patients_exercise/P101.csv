@@ -1,0 +1,11 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 14:52:24,P101,Unknown Patient,Middle Finger,1,0,15,259.0,STARTED
+2026-08-27 14:52:33,P101,Unknown Patient,Middle Finger,1,8,15,327.0,COMPLETED
+2026-08-27 14:53:19,P101,Unknown Patient,Full Hand,1,0,15,362.0,STARTED
+2026-08-27 14:53:40,P101,Unknown Patient,Full Hand,1,18,15,362.0,COMPLETED
+2026-08-27 14:54:26,P101,Unknown Patient,Full Hand,1,0,15,392.0,STARTED
+2026-08-27 14:54:44,P101,Unknown Patient,Full Hand,1,18,15,392.0,COMPLETED
+2026-08-27 14:54:57,P101,Unknown Patient,Full Hand,1,0,15,255.0,STARTED
+2026-08-27 14:55:16,P101,Unknown Patient,Full Hand,1,18,15,255.0,COMPLETED
+2026-08-27 14:56:26,P101,Unknown Patient,Full Hand,1,0,15,226.0,STARTED
+2026-08-27 14:56:44,P101,Unknown Patient,Full Hand,1,18,15,226.0,COMPLETED
