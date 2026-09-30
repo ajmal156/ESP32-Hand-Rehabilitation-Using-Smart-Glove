@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physiotherapy Glove Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">Glove<span>Therapy</span></div>
+  <div class="brand-sub">ESP32 Rehabilitation System</div>
+  <nav>
+    <button class="nav-btn active" data-section="dashboardSec">Dashboard</button>
+    <button class="nav-btn" data-section="therapySec">Therapy Session</button>
+    <button class="nav-btn" data-section="patientsSec">Patient Records</button>
+    <button class="nav-btn" data-section="logsSec">Data Logs</button>
+  </nav>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div><h1 id="pageTitle">Dashboard</h1><p>Real-time EMG Telemetry & System Status</p></div>
+  <div class="connection"><div id="dot"></div><span id="apiStatus">Connecting...</span></div>
+</header>
+
+<section id="dashboardSec" class="section active">
+  <div class="cards">
+    <div class="card"><span>Registered Patients</span><strong id="totalPatientsCard">0</strong></div>
+    <div class="card"><span>Selected Patient Sessions</span><strong id="totalSessionsCard">0</strong></div>
+    <div class="card"><span>Completed Sessions</span><strong id="completedSessionsCard">0</strong></div>
+    <div class="card"><span>Latest Exercise</span><strong id="latestExerciseCard" style="font-size:1.2rem">None</strong></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h2>Live EMG Muscle Signal</h2><div class="emg-live-badge">LIVE</div></div>
+    <div class="panel-body">
+      <div class="emg-chart-container"><canvas id="emgChartCanvas"></canvas></div>
+      <div class="emg-grid">
+        <div class="card">
+          <div class="emg-channel-head"><span class="emg-channel-tag">EMG SENSOR</span><span style="font-size:.8rem;color:var(--muted)">GPIO 34</span></div>
+          <div class="emg-readout" id="emgCh1Val">0 <span>ADC</span></div>
+          <div class="emg-meter"><div class="emg-bar" id="emgCh1Bar"></div></div>
+        </div>
+        <div class="card"><span>Signal Strength</span><div class="emg-readout" id="emgPercentVal">0%</div></div>
+        <div class="card"><span>Peak Signal Recorded</span><div class="emg-readout" id="emgPeakVal">0 ADC</div></div>
+        <div class="card"><span>Muscle Fatigue Indicator</span><div class="emg-readout" id="emgFatigueVal" style="color:#28a745">LOW</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h2>Recent Exercise Activity</h2>
+      <select id="patientFilterSelector"><option value="">Select Patient...</option></select>
+    </div>
+    <div class="panel-body"><div class="table-wrap"><table>
+      <thead><tr><th>Timestamp</th><th>Patient</th><th>Exercise</th><th>Reps</th><th>Duration</th><th>Pressure</th><th>EMG Peak</th><th>Status</th></tr></thead>
+      <tbody id="recentLogsTable"><tr><td colspan="8" style="text-align:center">Select a patient.</td></tr></tbody>
+    </table></div></div>
+  </div>
+</section>
+
+<section id="therapySec" class="section">
+  <div class="panel">
+    <div class="panel-head"><h2>Hardware Device Link</h2>
+      <div class="status-indicator"><div id="gloveStatusDot"></div><span id="gloveStatusText">Disconnected</span></div>
+    </div>
+    <div class="panel-body">
+      <div class="ip-input-wrap">
+        <label>ESP32 Glove IP Address<br><input type="text" id="gloveIpInput" placeholder="e.g. 10.1.32.51"></label>
+        <button class="primary-btn" onclick="checkGloveConnection()">Connect Glove</button>
+        <button class="danger-btn" onclick="remoteStopSystem()">EMERGENCY STOP</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="therapy-controls-wrap">
+    <div class="panel therapy-session-panel">
+      <div class="panel-head"><h2>Active Patient Session</h2></div>
+      <div class="panel-body">
+        <div id="activeSessionDisplay">Active Link: Not Configured</div>
+        <br><label style="font-weight:bold">Assign Patient:</label><br>
+        <select id="sessionPatientSelector"><option value="">Select Active Patient...</option></select>
+      </div>
+    </div>
+
+    <div class="panel exercise-control-panel">
+      <div class="panel-head"><h2>Trigger Remote Exercises</h2></div>
+      <div class="panel-body">
+        <div class="control-status-msg" id="gloveControlMessage">Awaiting command dispatch...</div>
+        <div class="exercise-btns-grid">
+          <button class="control-btn" onclick="remoteControlExercise('Finger Flexion',30,1)">Finger Flexion</button>
+          <button class="control-btn" onclick="remoteControlExercise('Full Fist Compression',45,1)">Fist Compression</button>
+          <button class="control-btn" onclick="remoteControlExercise('Pinch Grip',30,1)">Pinch Grip</button>
+          <button class="control-btn" onclick="remoteControlExercise('Passive Extension',60,1)">Passive Extension</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="patientsSec" class="section">
+  <div class="panel">
+    <div class="panel-head"><h2>Registered Patient Database</h2><button class="primary-btn" onclick="openPatientForm()">+ Add New Patient</button></div>
+    <div class="panel-body"><div class="table-wrap"><table>
+      <thead><tr><th>Patient ID</th><th>Name</th><th>Age</th><th>Assigned Doctor</th><th>Therapy Plan</th><th>Registration Date</th></tr></thead>
+      <tbody id="patientsRecordsTable"><tr><td colspan="6">Loading...</td></tr></tbody>
+    </table></div></div>
+  </div>
+</section>
+
+<section id="logsSec" class="section">
+  <div class="panel">
+    <div class="panel-head"><h2>Historical Exercise Logs</h2></div>
+    <div class="panel-body"><div class="table-wrap"><table>
+      <thead><tr><th>Timestamp</th><th>Patient ID</th><th>Exercise</th><th>Reps</th><th>Duration</th><th>Pressure</th><th>EMG Peak</th><th>Status</th></tr></thead>
+      <tbody id="dataLogsTable"><tr><td colspan="8">Select a patient from Dashboard.</td></tr></tbody>
+    </table></div></div>
+  </div>
+</section>
+</main>
+</div>
+
+<div class="modal" id="patientAddModal">
+<div class="modal-box">
+  <div class="panel-head"><h2>Register New Patient</h2><button class="close" onclick="closePatientForm()">&times;</button></div>
+  <form id="patientForm">
+    <label>Patient ID:<input type="text" id="p_id" placeholder="P101" required></label>
+    <label>Full Name:<input type="text" id="p_name" placeholder="Patient Name" required></label>
+    <label>Age:<input type="number" id="p_age" min="1" max="120" required></label>
+    <label>Doctor Name:<input type="text" id="p_doctor"></label>
+    <label>Exercise Plan:<input type="text" id="p_plan"></label>
+    <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:15px">
+      <button type="button" class="small-btn" onclick="closePatientForm()">Cancel</button>
+      <button type="submit" class="primary-btn">Save Patient</button>
+    </div>
+  </form>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
