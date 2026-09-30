@@ -1,0 +1,54 @@
+:root {
+  --bg:#f0f2f5; --panel:#fff; --text:#333; --muted:#777;
+  --primary:#007bff; --accent:#0056b3; --border:#e0e0e0;
+  --sidebar:#1e293b; --danger:#dc3545;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:var(--text)}
+.app{display:flex;height:100vh;overflow:hidden}
+.sidebar{width:230px;background:var(--sidebar);color:#fff;padding:1.5rem;display:flex;flex-direction:column;flex-shrink:0}
+.brand{font-size:1.5rem;font-weight:bold}.brand span{color:var(--primary)}
+.brand-sub{font-size:.8rem;color:#94a3b8;margin-top:2px;margin-bottom:2rem}
+.nav-btn{background:none;border:0;color:#cbd5e1;width:100%;text-align:left;padding:12px 15px;border-radius:6px;cursor:pointer;margin-bottom:5px;font-size:.95rem}
+.nav-btn:hover{background:#334155}.nav-btn.active{background:var(--primary);color:#fff;font-weight:bold}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{background:var(--panel);padding:1rem 2rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.topbar h1{margin:0;font-size:1.5rem}.topbar p{margin:.25rem 0 0;color:var(--muted)}
+.connection{display:flex;align-items:center;gap:8px;font-size:.9rem}
+#dot,#gloveStatusDot{width:10px;height:10px;border-radius:50%;background:#ccc}
+.section{padding:2rem;display:none;overflow-y:auto;height:100%}.section.active{display:block}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.card{background:var(--panel);padding:1.5rem;border-radius:8px;border:1px solid var(--border)}
+.card span{font-size:.85rem;color:var(--muted)}.card strong{display:block;font-size:1.8rem;margin-top:5px;color:var(--primary)}
+.panel{background:var(--panel);border-radius:8px;border:1px solid var(--border);margin-bottom:2rem;overflow:hidden}
+.panel-head{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.panel-head h2{margin:0;font-size:1.1rem}.panel-body{padding:1.5rem}
+.table-wrap{width:100%;overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:700px}
+th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--border);font-size:.9rem}th{background:#f8fafc;color:var(--muted)}
+.primary-btn{background:var(--primary);color:#fff;border:0;padding:10px 18px;border-radius:6px;cursor:pointer;font-weight:600}
+.danger-btn{background:var(--danger);color:#fff;border:0;padding:8px 15px;border-radius:6px;cursor:pointer;font-weight:bold}
+.small-btn{background:#fff;border:1px solid #ccc;padding:6px 12px;border-radius:4px;cursor:pointer}
+select,input{padding:9px 12px;border-radius:4px;border:1px solid #ccc}
+select{width:100%;max-width:300px}.ip-input-wrap{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.ip-input-wrap input{width:280px}
+.therapy-controls-wrap{display:flex;gap:2rem}.therapy-session-panel{flex:1;border:2px solid #28a745}.exercise-control-panel{flex:2}
+.exercise-btns-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.control-btn{background:var(--primary);color:#fff;border:0;padding:16px;border-radius:6px;cursor:pointer;font-weight:bold}
+.control-btn:disabled{opacity:.55;cursor:not-allowed}
+.emg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:1rem}
+.emg-chart-container{position:relative;width:100%;height:260px;background:#0f172a;border-radius:8px;margin-bottom:1rem}
+.emg-chart-container canvas{width:100%!important;height:100%!important}
+.emg-live-badge{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(74,222,128,.4);padding:3px 8px;border-radius:4px;font-size:.75rem;font-weight:700}
+.emg-channel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.emg-channel-tag{background:#e2e8f0;color:#334155;font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:4px}
+.emg-readout{font-size:2rem;font-weight:800;color:var(--primary);margin:.5rem 0}
+.emg-meter{width:100%;height:10px;background:#e2e8f0;border-radius:5px;overflow:hidden;margin-top:8px}
+.emg-bar{height:100%;width:0%;background:var(--primary);transition:width .1s linear}
+.status-tag{font-weight:700;padding:3px 7px;border-radius:4px;background:#eef2ff}
+.status-indicator{display:flex;align-items:center;gap:8px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;justify-content:center;align-items:center;z-index:1000}
+.modal-box{background:var(--panel);width:420px;max-width:92vw;border-radius:8px}.modal-box form{padding:1.5rem}
+.modal-box label{display:block;margin-bottom:12px;font-weight:600}.modal-box input{width:100%;margin-top:4px}.close{background:none;border:0;font-size:1.5rem;cursor:pointer}
+.control-status-msg{margin-bottom:1rem;color:var(--muted)}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}.therapy-controls-wrap{flex-direction:column}}
+@media(max-width:700px){.sidebar{width:180px;padding:1rem}.section{padding:1rem}.cards{grid-template-columns:1fr}.topbar{padding:1rem}.exercise-btns-grid{grid-template-columns:1fr}}
