@@ -35,3 +35,4 @@ data/generated/
 
 # Large demonstration video excluded from Git
 dashboard/Screen Recording 2026-08-27 151654.mp4
+/dashboard/web_demo.mp4
