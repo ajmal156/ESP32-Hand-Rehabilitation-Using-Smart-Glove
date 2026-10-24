@@ -1,21 +1,19 @@
 # ESP32 Smart Physiotherapy Glove
 
-An **EMG-based hand rehabilitation prototype** designed to support hand exercise and muscle-activity monitoring using embedded systems and a web dashboard.
+An **EMG-based hand rehabilitation prototype** integrating embedded control, pneumatic actuation, muscle-activity monitoring, and a web dashboard.
 
 ## Project Demo
 
-**Main demonstration video**
-
-[▶ Watch the Smart Physiotherapy Glove Demo](video/Muhammad_Ajmal_Soft_Robotic_Glove_Project%20(1).mp4)
+[▶ Watch the Main Project Demonstration](video/Muhammad_Ajmal_Soft_Robotic_Glove_Project%20(1).mp4)
 
 ## Key Features
 
-- **EMG monitoring:** Reads muscle activity through an EMG sensor.
-- **Pneumatic actuation:** Uses a pump and valves to assist hand movement.
-- **Embedded control:** ESP32-based hardware integration.
-- **User interface:** LCD and keypad for local interaction.
-- **Web dashboard:** Flask-based backend for displaying and recording session data.
-- **Data visualization:** Charts for exploring sample EMG and session results.
+- EMG sensor for muscle-activity monitoring
+- ESP32-based embedded control
+- Pneumatic pump and valves for glove actuation
+- LCD and keypad interface
+- Flask backend and web dashboard
+- Sample data analysis and visualization
 
 ## Hardware and Software
 
@@ -24,13 +22,13 @@ An **EMG-based hand rehabilitation prototype** designed to support hand exercise
 | ESP32 | Embedded controller |
 | EMG sensor | Muscle-activity measurement |
 | Pump and pneumatic valves | Glove actuation |
-| LCD and keypad | Local interface |
+| LCD and keypad | Local user interface |
 | Python and Flask | Backend and data handling |
 | HTML, CSS and JavaScript | Web dashboard |
 
 ## Sample Results
 
-The following charts illustrate analyses generated from the project's sample dataset.
+The following visualizations illustrate analyses from the project's sample dataset.
 
 ### 1. Average EMG by Patient
 ![Average EMG by Patient](data/sample_logs/patient_graphs/graphs/01_avg_emg_by_patient.png)
@@ -79,18 +77,18 @@ Run the backend using the project's configured entry point.
 - `hardware/` — Hardware documentation and diagrams
 - `backend/` and `server/` — Backend code
 - `webDashboard/` — Web interface
-- `data/sample_logs/` — Sample data and result charts
+- `data/sample_logs/` — Sample data and charts
 - `docs/` — Project documentation
 - `video/` and `media/` — Demonstration media
 
 ## Project Status
 
-This is a prototype intended for development and testing. It is not a certified medical device and should not be used as a substitute for professional medical care.
+This is a prototype for development and testing. It is not a certified medical device and must not be used as a substitute for professional medical care.
 
 ## License
 
-See [LICENSE](LICENSE) for licensing information.
+See [LICENSE](LICENSE).
 
 ## Citation
 
-See [CITATION.md](CITATION.md) for citation details.
+See [CITATION.md](CITATION.md).
