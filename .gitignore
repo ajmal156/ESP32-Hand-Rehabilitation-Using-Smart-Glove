@@ -12,6 +12,7 @@ venv/
 .idea/
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Arduino build artifacts
 build/
@@ -31,3 +32,6 @@ credentials.json
 
 # Generated data
 data/generated/
+
+# Large demonstration video excluded from Git
+dashboard/Screen Recording 2026-08-27 151654.mp4
