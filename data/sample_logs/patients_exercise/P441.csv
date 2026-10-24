@@ -1,0 +1,5 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+8/27/2026 15:17,P441,Bilal,Full Fist Compression,1,0,15,4095,STARTED
+8/27/2026 15:17,P441,Bilal,Full Fist Compression,1,45,15,4095,COMPLETED
+8/27/2026 16:05,P441,Bilal,Finger Flexion,1,0,15,4095,STARTED
+8/27/2026 16:06,P441,Bilal,Finger Flexion,1,30,15,4095,COMPLETED

@@ -1,0 +1,15 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 13:03:00,P2011,Saad Khan,Index Finger,1,0,15,473.2,STARTED
+2026-08-27 13:03:35,P2011,Saad Khan,Index Finger,1,30,15,2340.7,COMPLETED
+2026-08-27 13:05:35,P2011,Saad Khan,Thumb Ex,1,0,15,3861,STARTED
+2026-08-27 13:05:53,P2011,Saad Khan,Thumb Ex,1,18,15,2774.0,COMPLETED
+2026-08-27 13:10:53,P2011,Saad Khan,Passive Extension,1,0,15,4095,STARTED
+2026-08-27 13:11:05,P2011,Saad Khan,Passive Extension,1,8,15,1104.2,COMPLETED
+2026-08-27 13:14:05,P2011,Saad Khan,Full Fist Compression,1,0,15,3861,STARTED
+2026-08-27 13:14:55,P2011,Saad Khan,Full Fist Compression,1,45,15,3886.8,COMPLETED
+2026-08-27 13:19:55,P2011,Saad Khan,Finger Flexion,1,0,15,3920,STARTED
+2026-08-27 13:20:31,P2011,Saad Khan,Finger Flexion,1,30,15,2532.3,COMPLETED
+2026-08-27 13:24:31,P2011,Saad Khan,Thumb Ex,1,0,15,411.9,STARTED
+2026-08-27 13:24:44,P2011,Saad Khan,Thumb Ex,1,8,15,2576.2,COMPLETED
+2026-08-27 13:27:44,P2011,Saad Khan,Index Finger,1,0,15,414.2,STARTED
+2026-08-27 13:28:37,P2011,Saad Khan,Index Finger,1,45,15,2876.5,COMPLETED

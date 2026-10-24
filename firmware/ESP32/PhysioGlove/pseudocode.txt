@@ -1,0 +1,98 @@
+================================================================================
+          ESP32 PHYSIOTHERAPY GLOVE - SYSTEM ARCHITECTURE & PSEUDOCODE
+================================================================================
+
+1. PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+This firmware controls an automated pneumatic physiotherapy glove integrated with 
+an EMG muscle sensor, an I2C LCD display, a 4x4 matrix keypad, and an ESP32 web 
+server. It communicates bidirectionally with a Python/Flask backend server over 
+Wi-Fi for remote therapy control and real-time telemetry logging.
+
+
+2. MULTI-FILE MODULE STRUCTURE
+--------------------------------------------------------------------------------
+[ PhysioGlove.ino ]  -> Main entry point containing setup() and loop() routines.
+[ Config.h        ]  -> Global constants, pin definitions, and shared variables.
+[ Hardware.h/.cpp ]  -> LCD display, 4x4 keypad scanning, and pneumatic valves.
+[ EMG_Sensor.h/.cpp] -> ADC baseline calibration, noise filtering, and mapping.
+[ Network.h/.cpp  ]  -> Wi-Fi connection, HTTP WebServer, and Client API requests.
+
+
+3. SYSTEM EXECUTION FLOW
+--------------------------------------------------------------------------------
+
+[START]
+   │
+   ├─► Initialize Serial (115200 baud) & I2C Bus (SDA: 21, SCL: 22)
+   ├─► Initialize Hardware:
+   │      - Configure Valve Pins (Output) & EMG Sensor Pin (Input)
+   │      - Set 12-bit ADC Resolution (0 - 4095)
+   │      - Initialize 16x2 I2C LCD display
+   │
+   ├─► Calibrate EMG Baseline:
+   │      - Read resting muscle voltage over 200 samples
+   │      - Calculate average baseline offset and apply deadband noise filter
+   │
+   └─► Connect to Wi-Fi Network:
+          - If Connected -> Display local IP address on LCD
+          - If Failed    -> Display connection error (Keypad active offline)
+
+[MAIN LOOP - CONTINUOUS EXECUTION]
+   │
+   ├─► 1. Handle incoming web server requests (HTTP GET/POST from Flask backend)
+   ├─► 2. Scan physical 4x4 keypad for manual exercise selection or emergency stop ('0')
+   ├─► 3. Periodically stream live EMG telemetry to backend server (every 300ms)
+   └─► 4. Check for pending remote therapy triggers received via the web API
+
+--------------------------------------------------------------------------------
+
+
+4. CORE MODULE LOGIC & ALGORITHMS
+--------------------------------------------------------------------------------
+
+A. EMG SENSOR PROCESSING & FILTERING
+   Function: readSingleEmgSensor()
+   - Take 20 rapid analog samples with short microsecond delays.
+   - Constrain raw value between 0 and 4095.
+   - Apply moving-average smoothing filter:
+       emgFiltered = (emgFiltered * 3 + rawSample) / 4
+
+   Function: calculateEmgPercent(adcValue)
+   - Compute absolute voltage activity above resting baseline:
+       activity = abs(adcValue - emgBaseline)
+   - If activity <= EMG_DEADBAND, set activity = 0 (removes background noise).
+   - Map remaining usable range to a normalized percentage scale (0% to 100%).
+
+
+B. PNEUMATIC EXERCISE EXECUTION & SAFETY
+   Function: runCustomExercise(name, inflateSec, deflateSec, repetitions)
+   - Send "STARTED" status log to the Python backend.
+   - For each repetition (rep 1 to N):
+       1. Set Valve 1 HIGH (Inflate glove chambers), update LCD display.
+       2. Run safeDelay() -> Keeps web server responsive while waiting.
+       3. Pause valves for 500ms.
+       4. Set Valve 2 HIGH (Deflate glove chambers), update LCD display.
+       5. Run safeDelay() -> Monitors for emergency stop key '0'.
+       6. Close all valves.
+   - Measure peak EMG activity, update LCD to "Complete", and send "COMPLETED" log.
+
+   Function: stopSystem() (Emergency Stop)
+   - Set all valves LOW (Immediate pressure release).
+   - Set global stop flags and cancel pending tasks.
+   - Update LCD to "EMERGENCY STOP" and send "STOPPED" log to server.
+
+
+C. NETWORK & WEB API COMMUNICATION
+   Endpoints Registered on ESP32 WebServer (Port 80):
+   - GET  "/"              -> Check online status text.
+   - GET  "/status"        -> Return JSON status, patient ID, and local IP.
+   - GET  "/emg"           -> Return current live EMG ADC value and percentage.
+   - POST "/start_therapy" -> Parse JSON body, queue custom therapy routine.
+   - GET/POST "/stop"      -> Trigger immediate system emergency stop.
+
+   Periodic Upload Functions:
+   - uploadLiveEMG() -> Sends live ADC and percentage to `${pythonServer}/api/emg`.
+   - sendDataLog()   -> Posts exercise summaries and peak metrics to `${pythonServer}/api/logs`.
+
+================================================================================

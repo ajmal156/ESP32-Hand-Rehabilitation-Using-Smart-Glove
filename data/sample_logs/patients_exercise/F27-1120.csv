@@ -1,0 +1,13 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 13:05:00,F27-1120,Ali Raza,Full Fist Compression,1,0,15,386.6,STARTED
+2026-08-27 13:05:27,F27-1120,Ali Raza,Full Fist Compression,1,18,15,2397.2,COMPLETED
+2026-08-27 13:09:27,F27-1120,Ali Raza,Passive Extension,1,0,15,210.8,STARTED
+2026-08-27 13:09:45,F27-1120,Ali Raza,Passive Extension,1,8,15,1486.8,COMPLETED
+2026-08-27 13:14:45,F27-1120,Ali Raza,Thumb Ex,1,0,15,62.8,STARTED
+2026-08-27 13:15:09,F27-1120,Ali Raza,Thumb Ex,1,18,15,3918.4,COMPLETED
+2026-08-27 13:18:09,F27-1120,Ali Raza,Full Fist Compression,1,0,15,375.9,STARTED
+2026-08-27 13:18:33,F27-1120,Ali Raza,Full Fist Compression,1,18,15,604.7,COMPLETED
+2026-08-27 13:19:33,F27-1120,Ali Raza,Thumb Ex,1,0,15,366.5,STARTED
+2026-08-27 13:19:58,F27-1120,Ali Raza,EMERGENCY_STOP,0,0,15,2809.7,STOPPED
+2026-08-27 13:22:58,F27-1120,Ali Raza,Full Hand,1,0,15,441.7,STARTED
+2026-08-27 13:23:35,F27-1120,Ali Raza,Full Hand,1,30,15,3759.4,COMPLETED

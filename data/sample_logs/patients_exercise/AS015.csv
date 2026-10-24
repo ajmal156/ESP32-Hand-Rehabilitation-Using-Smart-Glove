@@ -1,0 +1,17 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 13:51:00,AS015,Fahad Malik,Passive Extension,1,0,15,281.1,STARTED
+2026-08-27 13:51:47,AS015,Fahad Malik,Passive Extension,1,45,15,755.1,COMPLETED
+2026-08-27 13:53:47,AS015,Fahad Malik,Finger Flexion,1,0,15,269.6,STARTED
+2026-08-27 13:54:26,AS015,Fahad Malik,Finger Flexion,1,30,15,2904.8,COMPLETED
+2026-08-27 13:58:26,AS015,Fahad Malik,Thumb Ex,1,0,15,372.2,STARTED
+2026-08-27 13:58:42,AS015,Fahad Malik,Thumb Ex,1,8,15,2219.1,COMPLETED
+2026-08-27 14:01:42,AS015,Fahad Malik,Full Fist Compression,1,0,15,99.7,STARTED
+2026-08-27 14:02:00,AS015,Fahad Malik,Full Fist Compression,1,18,15,943.1,COMPLETED
+2026-08-27 14:06:00,AS015,Fahad Malik,Finger Flexion,1,0,15,37.9,STARTED
+2026-08-27 14:06:09,AS015,Fahad Malik,Finger Flexion,1,8,15,2308.5,COMPLETED
+2026-08-27 14:11:09,AS015,Fahad Malik,Passive Extension,1,0,15,54.8,STARTED
+2026-08-27 14:11:28,AS015,Fahad Malik,Passive Extension,1,18,15,1088.3,COMPLETED
+2026-08-27 14:14:28,AS015,Fahad Malik,Index Finger,1,0,15,3920,STARTED
+2026-08-27 14:15:00,AS015,Fahad Malik,Index Finger,1,30,15,1450.3,COMPLETED
+2026-08-27 14:16:00,AS015,Fahad Malik,Full Fist Compression,1,0,15,484.0,STARTED
+2026-08-27 14:16:10,AS015,Fahad Malik,EMERGENCY_STOP,0,0,15,345.1,STOPPED

@@ -1,0 +1,13 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 12:33:00,P552,Zainab Bibi,Finger Flexion,1,0,15,340.2,STARTED
+2026-08-27 12:33:53,P552,Zainab Bibi,Finger Flexion,1,45,15,1205.0,COMPLETED
+2026-08-27 12:34:53,P552,Zainab Bibi,Thumb Ex,1,0,15,414.0,STARTED
+2026-08-27 12:35:06,P552,Zainab Bibi,Thumb Ex,1,8,15,1025.5,COMPLETED
+2026-08-27 12:39:06,P552,Zainab Bibi,Passive Extension,1,0,15,254.4,STARTED
+2026-08-27 12:39:16,P552,Zainab Bibi,EMERGENCY_STOP,0,0,15,2210.5,STOPPED
+2026-08-27 12:42:16,P552,Zainab Bibi,Index Finger,1,0,15,465.1,STARTED
+2026-08-27 12:42:53,P552,Zainab Bibi,Index Finger,1,30,15,1111.2,COMPLETED
+2026-08-27 12:46:53,P552,Zainab Bibi,Passive Extension,1,0,15,3920,STARTED
+2026-08-27 12:47:17,P552,Zainab Bibi,Passive Extension,1,18,15,976.4,COMPLETED
+2026-08-27 12:50:17,P552,Zainab Bibi,Middle Finger,1,0,15,3920,STARTED
+2026-08-27 12:50:27,P552,Zainab Bibi,Middle Finger,1,8,15,845.8,COMPLETED

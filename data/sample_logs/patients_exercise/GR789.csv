@@ -1,0 +1,9 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+8/27/2026 11:46,GR789,Ayesha Khan,Thumb Ex,1,0,15,377.4,STARTED
+8/27/2026 11:46,GR789,Ayesha Khan,Thumb Ex,1,18,15,3196.3,COMPLETED
+8/27/2026 11:48,GR789,Ayesha Khan,Middle Finger,1,0,15,4095,STARTED
+8/27/2026 11:48,GR789,Ayesha Khan,Middle Finger,1,8,15,2117.2,COMPLETED
+8/27/2026 11:53,GR789,Ayesha Khan,Full Fist Compression,1,0,15,3861,STARTED
+8/27/2026 11:54,GR789,Ayesha Khan,Full Fist Compression,1,18,15,1577.8,COMPLETED
+8/27/2026 11:56,GR789,Ayesha Khan,Middle Finger,1,0,15,244.8,STARTED
+8/27/2026 11:56,GR789,Ayesha Khan,Middle Finger,1,45,15,3266.7,COMPLETED

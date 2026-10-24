@@ -1,0 +1,33 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Arduino build artifacts
+build/
+*.elf
+*.hex
+*.bin
+*.o
+*.a
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Private configuration and credentials
+secrets.json
+credentials.json
+
+# Generated data
+data/generated/

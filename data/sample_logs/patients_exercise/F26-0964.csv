@@ -1,0 +1,9 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 12:28:00,F26-0964,Smith,Middle Finger,1,0,15,126.4,STARTED
+2026-08-27 12:28:11,F26-0964,Smith,Middle Finger,1,8,15,3701.7,COMPLETED
+2026-08-27 12:31:11,F26-0964,Smith,Full Fist Compression,1,0,15,4095,STARTED
+2026-08-27 12:31:23,F26-0964,Smith,Full Fist Compression,1,8,15,209.3,COMPLETED
+2026-08-27 12:32:23,F26-0964,Smith,Full Hand,1,0,15,391.5,STARTED
+2026-08-27 12:32:35,F26-0964,Smith,Full Hand,1,8,15,3250.9,COMPLETED
+2026-08-27 12:33:35,F26-0964,Smith,Finger Flexion,1,0,15,454.3,STARTED
+2026-08-27 12:34:27,F26-0964,Smith,Finger Flexion,1,45,15,1582.1,COMPLETED

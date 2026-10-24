@@ -1,0 +1,11 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 11:15:00,P0042,Obaidullah,Passive Extension,1,0,15,291.1,STARTED
+2026-08-27 11:15:24,P0042,Obaidullah,Passive Extension,1,18,15,3012.1,COMPLETED
+2026-08-27 11:20:24,P0042,Obaidullah,Full Fist Compression,1,0,15,397.2,STARTED
+2026-08-27 11:20:32,P0042,Obaidullah,Full Fist Compression,1,8,15,3071.0,COMPLETED
+2026-08-27 11:24:32,P0042,Obaidullah,Full Fist Compression,1,0,15,318.0,STARTED
+2026-08-27 11:24:50,P0042,Obaidullah,Full Fist Compression,1,18,15,2396.2,COMPLETED
+2026-08-27 11:25:50,P0042,Obaidullah,Full Fist Compression,1,0,15,352.9,STARTED
+2026-08-27 11:26:03,P0042,Obaidullah,EMERGENCY_STOP,0,0,15,1802.1,STOPPED
+2026-08-27 11:27:03,P0042,Obaidullah,Index Finger,1,0,15,214.2,STARTED
+2026-08-27 11:27:27,P0042,Obaidullah,Index Finger,1,18,15,338.2,COMPLETED

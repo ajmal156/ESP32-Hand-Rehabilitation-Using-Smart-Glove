@@ -1,0 +1,17 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 13:07:00,AS002,Jaml Ahmad,Full Hand,1,0,15,3861,STARTED
+2026-08-27 13:07:51,AS002,Jaml Ahmad,Full Hand,1,45,15,301.0,COMPLETED
+2026-08-27 13:10:51,AS002,Jaml Ahmad,Finger Flexion,1,0,15,242.1,STARTED
+2026-08-27 13:11:05,AS002,Jaml Ahmad,EMERGENCY_STOP,0,0,15,3581.1,STOPPED
+2026-08-27 13:12:05,AS002,Jaml Ahmad,Full Fist Compression,1,0,15,3920,STARTED
+2026-08-27 13:12:38,AS002,Jaml Ahmad,Full Fist Compression,1,30,15,2866.6,COMPLETED
+2026-08-27 13:17:38,AS002,Jaml Ahmad,Finger Flexion,1,0,15,3861,STARTED
+2026-08-27 13:17:50,AS002,Jaml Ahmad,EMERGENCY_STOP,0,0,15,2875.1,STOPPED
+2026-08-27 13:21:50,AS002,Jaml Ahmad,Finger Flexion,1,0,15,4095,STARTED
+2026-08-27 13:22:26,AS002,Jaml Ahmad,Finger Flexion,1,30,15,1863.9,COMPLETED
+2026-08-27 13:24:26,AS002,Jaml Ahmad,Middle Finger,1,0,15,243.5,STARTED
+2026-08-27 13:24:46,AS002,Jaml Ahmad,Middle Finger,1,18,15,2468.3,COMPLETED
+2026-08-27 13:29:46,AS002,Jaml Ahmad,Passive Extension,1,0,15,4095,STARTED
+2026-08-27 13:30:09,AS002,Jaml Ahmad,Passive Extension,1,18,15,1941.3,COMPLETED
+2026-08-27 13:33:09,AS002,Jaml Ahmad,Middle Finger,1,0,15,428.2,STARTED
+2026-08-27 13:33:27,AS002,Jaml Ahmad,Middle Finger,1,18,15,2881.0,COMPLETED

@@ -1,0 +1,11 @@
+datetime,patient_id,patient_name,exercise,repetitions,duration_sec,pressure_psi,emg_peak,status
+2026-08-27 12:26:00,P3015,Hamza Raza,Middle Finger,1,0,15,314.6,STARTED
+2026-08-27 12:26:53,P3015,Hamza Raza,Middle Finger,1,45,15,2500.3,COMPLETED
+2026-08-27 12:28:53,P3015,Hamza Raza,Thumb Ex,1,0,15,217.8,STARTED
+2026-08-27 12:29:47,P3015,Hamza Raza,Thumb Ex,1,45,15,3672.0,COMPLETED
+2026-08-27 12:33:47,P3015,Hamza Raza,Thumb Ex,1,0,15,417.3,STARTED
+2026-08-27 12:34:40,P3015,Hamza Raza,Thumb Ex,1,45,15,3742.8,COMPLETED
+2026-08-27 12:38:40,P3015,Hamza Raza,Full Fist Compression,1,0,15,164.4,STARTED
+2026-08-27 12:38:50,P3015,Hamza Raza,EMERGENCY_STOP,0,0,15,4086.9,STOPPED
+2026-08-27 12:41:50,P3015,Hamza Raza,Full Fist Compression,1,0,15,270.2,STARTED
+2026-08-27 12:42:13,P3015,Hamza Raza,Full Fist Compression,1,18,15,3224.8,COMPLETED
