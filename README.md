@@ -1,77 +1,97 @@
-# Physio Glove Project - Corrected Version
+# ESP32 Smart Physiotherapy Glove
 
-## Components
-- ESP32
-- One analog EMG sensor connected to GPIO 34
-- Two pneumatic valve control outputs
-- 4x4 keypad
-- 16x2 I2C LCD
-- Flask dashboard
+An **EMG-based hand rehabilitation prototype** designed to support hand exercise and muscle-activity monitoring using embedded systems and a web dashboard.
 
-## Folder structure
+## Project Demo
 
-Physio_Glove_Project_Corrected/
-  server.py
-  web/
-    dashboard.html
-    style.css
-    script.js
-  esp32/
-    PhysioGlove.ino
+**Main demonstration video**
 
-Runtime-created:
-  patients.csv
-  patients_login.csv
-  patients_exercise/
-  emg_sensor_data/
+[▶ Watch the Smart Physiotherapy Glove Demo](video/Muhammad_Ajmal_Soft_Robotic_Glove_Project%20(1).mp4)
 
-## Before uploading ESP32 code
+## Key Features
 
-Open `esp32/PhysioGlove.ino` and change:
+- **EMG monitoring:** Reads muscle activity through an EMG sensor.
+- **Pneumatic actuation:** Uses a pump and valves to assist hand movement.
+- **Embedded control:** ESP32-based hardware integration.
+- **User interface:** LCD and keypad for local interaction.
+- **Web dashboard:** Flask-based backend for displaying and recording session data.
+- **Data visualization:** Charts for exploring sample EMG and session results.
 
-String pythonServer = "http://10.1.32.40:5000";
+## Hardware and Software
 
-to the IPv4 address of the PC running Flask.
+| Component | Purpose |
+|---|---|
+| ESP32 | Embedded controller |
+| EMG sensor | Muscle-activity measurement |
+| Pump and pneumatic valves | Glove actuation |
+| LCD and keypad | Local interface |
+| Python and Flask | Backend and data handling |
+| HTML, CSS and JavaScript | Web dashboard |
 
-Also verify the Wi-Fi SSID/password.
+## Sample Results
 
-## Start Flask
+The following charts illustrate analyses generated from the project's sample dataset.
 
-From the project directory:
+### 1. Average EMG by Patient
+![Average EMG by Patient](data/sample_logs/patient_graphs/graphs/01_avg_emg_by_patient.png)
 
-python server.py
+### 2. Muscle Fatigue Distribution
+![Muscle Fatigue Distribution](data/sample_logs/patient_graphs/graphs/02_fatigue_distribution.png)
 
-Open:
+### 3. Sessions and Emergency Events
+![Sessions and Emergency Events](data/sample_logs/patient_graphs/graphs/03_sessions_vs_emergency.png)
 
-http://127.0.0.1:5000
+### 4. Age vs. EMG
+![Age vs. EMG](data/sample_logs/patient_graphs/graphs/04_age_vs_emg.png)
 
-## ESP32 test
+### 5. EMG Time Series
+![EMG Time Series](data/sample_logs/patient_graphs/graphs/05_emg_timeseries_top4.png)
 
-After upload, open Serial Monitor at 115200 baud.
+### 6. Average EMG Peak by Sessions
+![Average EMG Peak by Sessions](data/sample_logs/patient_graphs/graphs/06_avg_emg_peak_sessions.png)
 
-Find:
+### 7. Patients per Doctor
+![Patients per Doctor](data/sample_logs/patient_graphs/graphs/07_patients_per_doctor.png)
 
-ESP32 IP: x.x.x.x
+### 8. Dashboard Overview
+![Dashboard Overview](data/sample_logs/patient_graphs/graphs/08_dashboard.png)
 
-Then open:
+## Installation
 
-http://ESP32_IP/status
+Clone the repository:
 
-Expected:
+```bash
+git clone https://github.com/ajmal156/esp32-emg-smart-physiotherapy-glove.git
+cd esp32-emg-smart-physiotherapy-glove
+```
 
-{"status":"ONLINE", ...}
+Install the Python dependencies:
 
-## EMG
+```bash
+pip install -r Requirement.txt
+```
 
-Current project uses the raw ESP32 ADC range 0-4095.
+Run the backend using the project's configured entry point.
 
-The practical signal percentage is calculated from:
+## Repository Structure
 
-EMG_MIN_ADC = 720
-EMG_MAX_ADC = 2400
+- `firmware/` — ESP32 firmware
+- `hardware/` — Hardware documentation and diagrams
+- `backend/` and `server/` — Backend code
+- `webDashboard/` — Web interface
+- `data/sample_logs/` — Sample data and result charts
+- `docs/` — Project documentation
+- `video/` and `media/` — Demonstration media
 
-This percentage is a project signal-strength indicator and is not a clinically validated medical measurement.
+## Project Status
 
-## Important
+This is a prototype intended for development and testing. It is not a certified medical device and should not be used as a substitute for professional medical care.
 
-The current hardware has ONE EMG analog input on GPIO 34. Therefore the dashboard shows one real EMG channel. It does not create a fake second EMG channel.
+## License
+
+See [LICENSE](LICENSE) for licensing information.
+
+## Citation
+
+See [CITATION.md](CITATION.md) for citation details.
+
